@@ -7,7 +7,7 @@ namespace SportsStore.Models
 {
     public class DatoRepositorio : IRepositorio
     {
-        private List<Producto> dato = new List<Producto>();
+        public List<Producto> dato = new List<Producto>();
 
         public IEnumerable<Producto> Productos => dato;
 

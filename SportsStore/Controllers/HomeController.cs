@@ -20,7 +20,7 @@ namespace SportsStore.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddProducto(Producto producto) {
+        public IActionResult AddProduct(Producto producto) {
             repositorio.AddProducto(producto);
             return RedirectToAction(nameof(Index));
         }
