@@ -16,10 +16,6 @@ namespace SportsStore.Controllers
 
         public IActionResult Index() => View(repositorio.Productos);
 
-        public IActionResult Index2() {
-            return View();
-        }
-
         [HttpPost]
         public IActionResult Add(Producto producto) {
             repositorio.AddProducto(producto);
