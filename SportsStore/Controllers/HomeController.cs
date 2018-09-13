@@ -14,13 +14,14 @@ namespace SportsStore.Controllers
 
         public HomeController(IRepositorio repo) => repositorio = repo;
 
-        public IActionResult Index()
-        {
-            return View(repositorio.Productos);
+        public IActionResult Index() => View(repositorio.Productos);
+
+        public IActionResult Index2() {
+            return View();
         }
 
         [HttpPost]
-        public IActionResult AddProduct(Producto producto) {
+        public IActionResult Add(Producto producto) {
             repositorio.AddProducto(producto);
             return RedirectToAction(nameof(Index));
         }

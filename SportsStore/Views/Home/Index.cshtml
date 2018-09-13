@@ -1,6 +1,14 @@
 ﻿@model IEnumerable<Producto>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
 
 <h3 class="p-2 bg-primary text-white text-center">Productos</h3>
+
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col font-weight-bold">Name</div>
@@ -9,7 +17,7 @@
         <div class="col font-weight-bold text-right">Retail Price</div>
         <div class="col"></div>
     </div>
-    <form asp-action="AddProduct" method="post">
+    <form asp-action="Add" method="post">
         <div class="row">
             <div class="col"><input name="Name" class="form-control" /></div>
             <div class="col"><input name="Category" class="form-control" /></div>
@@ -44,5 +52,6 @@
         }
     }
 
-   
+
 </div>
+
