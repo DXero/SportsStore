@@ -7,13 +7,16 @@ namespace SportsStore.Models
 {
     public class DatoRepositorio : IRepositorio
     {
-        private List<Producto> dato = new List<Producto>();
+        private Contexto contexto;
 
-        public IEnumerable<Producto> Productos => dato;
+        public DatoRepositorio(Contexto ctx) => contexto = ctx;
+
+        public IEnumerable<Producto> Productos => contexto.Productos;
 
         public void AddProducto(Producto producto)
         {
-            this.dato.Add(producto);
+            this.contexto.Productos.Add(producto);
+            this.contexto.SaveChanges();
         }
     }
 }
