@@ -9,16 +9,26 @@ using Microsoft.Extensions.DependencyInjection;
 
 using SportsStore.Models;
 
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
 namespace SportsStore
 {
     public class Startup
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+
+        public Startup(IConfiguration config) => Configuration = config;
+
+        public IConfiguration Configuration { get; }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<IRepositorio, DatoRepositorio>();
+            services.AddTransient<IRepositorio, DatoRepositorio>();
+            string conString = Configuration["ConnectionStrings:DefaultConnection"];
+            services.AddDbContext<Contexto>(options => options.UseSqlServer(conString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
